@@ -1,4 +1,4 @@
-import {Component, inject, TemplateRef} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {UpperCasePipe} from "@angular/common";
 import {NgbActiveOffcanvas,NgbOffcanvasConfig} from '@ng-bootstrap/ng-bootstrap';
 
