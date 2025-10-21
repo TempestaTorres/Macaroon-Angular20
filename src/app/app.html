@@ -3,7 +3,7 @@
     <div class="container-xl bd-gutter px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-lg-6">
-          <img src="./assets/images/macaroons.png" class="d-block ms-lg-auto img-fluid" alt="Macaroons" loading="lazy">
+          <img [src]="listImages[0].src" class="d-block ms-lg-auto img-fluid" alt="Macaroons" loading="lazy">
         </div>
         <div class="col-lg-6">
           <h1 class="display-4 fw-bold lh-1 mb-sm-5">{{ title }}</h1>
@@ -24,7 +24,7 @@
       <!--Main content-->
       <div class="advantages-hero row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-          <img src="./assets/images/macaroon.png" class="d-block ms-lg-auto img-fluid" alt="Macaroon" loading="lazy">
+          <img [src]="listImages[1].src" class="d-block ms-lg-auto img-fluid" alt="Macaroon" loading="lazy">
         </div>
         <div class="col-lg-6">
           <h2 class="display-5 fw-bold lh-1 mb-sm-5">{{ aboutusTitle }}</h2>
@@ -71,7 +71,7 @@
     <div class="container-xl bd-gutter">
       <div class="row align-items-end order-row">
         <div class="col-md-6">
-          <img class="img-fluid" src="/assets/images/macarons-order.png" alt="order macaroon">
+          <img class="img-fluid" [src]="listImages[2].src" alt="order macaroon">
         </div>
         <div class="col-md-6 order-wrapper">
           <h2 class="section-order-title pb-4">{{ secOrderTitle }}</h2>
@@ -130,7 +130,7 @@
   </section>
 </main>
 <button (click)="smoothScroll(main)" class="btn btn-secondary back-to-top" aria-label="Scroll to top">
-  <img src="/assets/images/up-chevron-svgrepo-com.svg" alt="arrow">
+  <img [src]="listImages[3].src" alt="arrow">
 </button>
 <app-modal style="display: none"></app-modal>
 <router-outlet/>

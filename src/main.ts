@@ -11,5 +11,6 @@ bootstrapApplication(HeaderComponent, appConfig)
 
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));
+
 bootstrapApplication(FooterComponent, appConfig)
   .catch((err) => console.error(err));

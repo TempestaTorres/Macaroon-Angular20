@@ -7,6 +7,9 @@ import {User} from '../data/user.data';
 import {ModalComponent} from './modal.component/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
+interface ListImages {
+  src: string;
+}
 interface ListItemData {
   title: string;
   description: string;
@@ -28,6 +31,12 @@ export class App {
     {title: 'Бисквитное тесто', description: 'Все пирожные готовятся на бисквитном тесте с качественным сливочным маслом 82,5%. В составе нет маргарина и дрожжей!'},
     {title: 'Честный продукт', description: 'Вкус, качество и безопасность наших пирогов подтверждена декларацией о соответствии, которую мы получили 22.06.2016 г.'}
   ];
+  protected listImages: ListImages[] = [
+    {src: './assets/images/macaroons.png'},
+    {src: './assets/images/macaroon.png'},
+    {src: '/assets/images/macarons-order.png'},
+    {src: '/assets/images/up-chevron-svgrepo-com.svg'},
+  ]
   protected buttonSelectLabel: string = 'Выбрать макарун';
   protected aboutusTitle: string = 'Мы печём для вас вкуснейшие макаруны уже более 10 лет';
   protected aboutusDescription: string = 'Все пироженки мы готовим только из натуральных и качественных продуктов, без консервантов, ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей, маргарина,разрыхлителей и улучшителей муки.';
