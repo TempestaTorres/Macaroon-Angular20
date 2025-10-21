@@ -1,0 +1,34 @@
+.card.macaroon-card {
+  width: 100%;
+  height: 100%;
+  background-color: transparent !important;
+  border: 2px solid #f1faed !important;
+  border-radius: 20px !important;
+}
+.macaroon-card .card-body {
+  padding: 27px 21px;
+}
+.product-img-wrapper {
+  position: absolute;
+  left: calc(50% / 4);
+  bottom: 75%;
+  transition: transform .5s ease;
+}
+.macaroon-card:hover .product-img-wrapper {
+  transform: scale(1.1);
+}
+.macaroon-card .card-title {
+  text-align: center;
+  font-size: 18px;
+  color: #f1faed;
+  padding-bottom: 26px;
+}
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 15px;
+  line-height: 15px;
+  font-family: "GilroyRegular",sans-serif;
+  color: #f1faed;
+}

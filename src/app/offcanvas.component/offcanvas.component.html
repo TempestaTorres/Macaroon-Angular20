@@ -1,0 +1,24 @@
+
+  <!--Offcanvas header-->
+  <div class="offcanvas-header px-4 pb-0">
+    <h5 class="offcanvas-title text-white">{{ title | uppercase }}</h5>
+    <button type="button" class="btn-close btn-close-white" aria-label="Close"
+            (click)="offcanvas.dismiss('Cross click')"></button>
+  </div>
+  <!--Offcanvas body-->
+  <div class="offcanvas-body p-4 pt-0 p-lg-0">
+    <hr class="d-lg-none text-white-50">
+    <!--Navigation-->
+    <ul class="navbar-nav d-flex flex-wrap bd-navbar-nav gap-4">
+      @for (item of [
+        {title: 'Пироженки', link: '#mcproducts'},
+        {title: 'О нас', link: '#aboutus'},
+        {title: 'Оформить заказ', link: '#order'},
+      ]; track item.title) {
+        <li class="nav-item">
+          <a aria-current="true" class="nav-link py-2 px-0 px-lg-2" [href]="item.link">{{ item.title }}
+          </a>
+        </li>
+      }
+    </ul>
+  </div>

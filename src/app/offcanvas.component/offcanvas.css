@@ -1,0 +1,8 @@
+/**/
+@media (max-width: 992px) {
+
+  .bd-navbar-nav {
+    flex-direction: column;
+    gap: 0 !important;
+  }
+}

@@ -1,0 +1,24 @@
+@if (product) {
+  <div class="card macaroon-card shadow-sm position-relative">
+    <div class="card-body mt-auto flex-grow-0">
+      <h5 class="card-title text-center">{{ product.name }}</h5>
+      <div class="d-flex justify-content-between">
+        <div class="product-info">
+          <div>{{ product.count + ' шт.' }}</div>
+          <div>{{ product.price | currency: 'RUB' : 'symbol' }}</div>
+        </div>
+        <button class="btn_1 btn_1-sm" (click)="buttonClick()">{{ buttonLabel }}</button>
+      </div>
+    </div>
+    <div class="product-img-wrapper d-flex align-items-center justify-content-center">
+      @if (product.icon) {
+        <img [src]="product.icon" class="macaroon-card-img" [alt]="product.name">
+      } @else {
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <title>Placeholder</title>
+          <rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+        </svg>
+      }
+    </div>
+  </div>
+}

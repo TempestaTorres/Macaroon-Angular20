@@ -1,1 +1,148 @@
 /* You can add global styles to this file, and also import other style files */
+@import "style2.css";
+@font-face {
+  font-family: 'GilroyMedium';
+  src: url("./assets/fonts/Gilroy-Medium.ttf");
+}
+@font-face {
+  font-family: 'GilroyBold';
+  src: url("./assets/fonts/Gilroy-Bold.ttf");
+}
+@font-face {
+  font-family: 'GilroyExtraBold';
+  src: url("./assets/fonts/Gilroy-ExtraBold.ttf");
+}
+@font-face {
+  font-family: 'GilroyRegular';
+  src: url("./assets/fonts/Gilroy-Regular.ttf");
+}
+@font-face {
+  font-family: 'Tavolga';
+  src: url("./assets/fonts/Tavolga.otf");
+}
+:root {
+  --mc-background-color-primary: #eba8b1;
+  --mc-background-color-secondary: #c0707c;
+  --mc-color-primary: #f1faed;
+  --bd-macaroon-rgb: 235,168,177;
+  --bd-header-rgb: 231, 132, 146;
+  --bd-header-rgp: #e78492;
+}
+body {
+  font-family: 'Tavolga', sans-serif;
+}
+button {
+  border: none !important;
+}
+.mc-bg-primary {
+  background-color: var(--mc-background-color-primary);
+  color: var(--mc-color-primary);
+}
+.mc-bg-secondary {
+  background-color: var(--mc-background-color-secondary);
+  color: var(--mc-color-primary);
+}
+.text-mc-color {
+  color: var(--mc-color-primary) !important;
+}
+.phone {
+  font-size: 1rem;
+  font-family: GilroyBold,sans-serif;
+  color: #f1faed;
+}
+.btn_1 {
+  border-radius: 30px;
+  background-image: -webkit-linear-gradient( 90deg, rgb(113,8,30) 0%, rgb(215,72,92) 100%);
+  font-family: 'GilroyBold', sans-serif;
+  font-size: 18px;
+  width: 240px;
+  padding: 21px;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
+  }
+}
+.btn_1.order-btn {
+  width: 294px;
+}
+.btn_1.btn_1-sm {
+  font-size: 1rem;
+  width: 130px;
+  height: 50px;
+  border-radius: 25px;
+  padding: 1rem 0;
+}
+.btn_1.btn_1-xsm {
+  width: 100px;
+  font-size: .75rem;
+  border-radius: .75rem;
+  padding: .5rem 0;
+  text-align: center;
+}
+a.btn_1 {
+  text-decoration: none;
+}
+.form-label {
+  margin-bottom: 1.25rem !important;
+}
+.form-label.label {
+  font-size: 18px;
+  font-family: "GilroyBold",sans-serif;
+  color: #120a06;
+  line-height: 23px;
+}
+.warning-feedback {
+  font-size: 80%;
+  color: #ffc107;
+  display: none;
+  margin-top: 0.25rem;
+  width: 100%;
+}
+.form-control.is-warning {
+  border-color: #ffc107;
+}
+
+.form-control.is-warning:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.25);
+}
+
+.form-control.is-warning ~ .warning-feedback,
+.form-control.is-warning ~ .warning-tooltip {
+  display: block;
+}
+
+.offcanvas {
+  background-color: var(--mc-background-color-primary) !important;
+}
+.nav-link {
+  font-family: "GilroyMedium",sans-serif;
+  color: #6d3c1f !important;
+  transition: color .3s ease-in-out, background-color .15s ease-in-out, border-color .3s ease-in-out;
+}
+.nav-link:hover, .nav-link:focus {
+  color: var(--mc-color-primary) !important;
+}
+.offcanvas-body .nav-link:hover, .offcanvas-body .nav-link:focus, .offcanvas-body .nav-link:active {
+  color: var(--mc-color-primary) !important;
+}
+.link-line {
+  background-color: var(--mc-color-primary) !important;
+  height: 2px;
+  width: 100%;
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform .3s ease;
+}
+.nav-link:hover .link-line {
+  transform: scaleX(1);
+}
+.back-to-top {
+  bottom: 1.25rem;
+  position: fixed;
+  right: 1.25rem;
+  z-index: 1032;
+}

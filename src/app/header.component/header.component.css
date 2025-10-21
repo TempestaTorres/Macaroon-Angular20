@@ -1,0 +1,23 @@
+.navbar-brand {
+  color: var(--mc-color-primary) !important;
+}
+.bd-navbar {
+  padding: 2rem 0;
+}
+.bd-navbar::after {
+  /*background-image: linear-gradient(rgba(var(--bd-macaroon-rgb), 1), rgba(var(--bd-macaroon-rgb), .95));*/
+  background-image: linear-gradient(rgba(var(--bd-header-rgb), 1), rgba(var(--bd-header-rgb), .95));
+}
+
+@media (max-width: 992px) {
+  .phone {
+    display: none;
+  }
+  .bd-navbar-nav {
+    flex-direction: column;
+    gap: 0 !important;
+  }
+  .header-nav-bar {
+    display: none !important;
+  }
+}

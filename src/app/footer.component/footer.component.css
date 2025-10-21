@@ -1,0 +1,105 @@
+.footer-logo-brand {
+  color: var(--mc-color-primary) !important;
+}
+.copyright {
+font-size: 12px;
+font-family: "GilroyRegular",sans-serif;
+line-height: 12px;
+color: #e3acb4;
+}
+/* Instagram Tooltip*/
+
+.instagram {
+  position: relative;
+
+  a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4d4d4d;
+    background-color: #f1faed;
+    transition: all 0.3s ease-in-out;
+
+    .insta-filled {
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: #000;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: 3px 2px 35px 0 rgb(0 0 0 / 15%);
+      color: #fff;
+
+      & .insta-filled {
+        height: 100%;
+      }
+    }
+    svg {
+      position: relative;
+      z-index: 1;
+      width: 35px;
+      height: 35px;
+    }
+  }
+  .instagram-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 10px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: "GilroyMedium", sans-serif;
+    color: #fff;
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+}
+.instagram:hover .instagram-tooltip {
+  visibility: visible;
+  opacity: 1;
+  top: -45px;
+}
+
+.instagram-tooltip, .insta-filled {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.social-text {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-family: "GilroyBold",sans-serif;
+  color: #f1faed;
+}
+@media screen and (max-width: 425px) {
+  .footer {
+    flex-direction: column;
+    align-items: center!important;
+  }
+  .footer-logo-brand {
+    text-align: center;
+  }
+  .group-logo {
+    margin-bottom: 1.5rem;
+  }
+}

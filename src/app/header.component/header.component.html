@@ -1,0 +1,32 @@
+<header class="navbar navbar-expand-lg bd-navbar sticky-top">
+  <nav class="container-xl bd-gutter flex-lg-nowrap" aria-label="Main navigation">
+    <a class="navbar-brand fs-5" href="javascript: void(0)">{{ brandLogo | uppercase }}</a>
+    <button class="navbar-toggler d-flex d-lg-none order-3 p-2"
+            type="button"
+            aria-controls="bdNavbar"
+            aria-label="Toggle navigation"
+            (click)="open()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" class="bi" height="24" width="24"
+           aria-hidden="true">
+        <path fill-rule="evenodd"
+              d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path>
+      </svg>
+    </button>
+    <!--Navigation-->
+    <ul class="header-nav-bar navbar-nav d-flex flex-wrap bd-navbar-nav gap-4">
+      @for (item of [
+        {title: 'Пироженки', link: '#mcproducts'},
+        {title: 'О нас', link: '#aboutus'},
+        {title: 'Оформить заказ', link: '#order'},
+      ]; track item.title) {
+        <li class="nav-item">
+          <a aria-current="true" class="nav-link py-2 px-0 px-lg-2" [href]="item.link">{{ item.title }}
+            <div class="link-line"></div>
+          </a>
+        </li>
+      }
+    </ul>
+    <app-offcanvas style="display: none"></app-offcanvas>
+    <span class="phone">{{ phoneNumber }}</span>
+  </nav>
+</header>
