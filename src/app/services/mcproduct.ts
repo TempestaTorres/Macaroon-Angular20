@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ProductData, Products} from '../../data/product.data';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class McProduct {
 
   protected macaroons: ProductData[];
