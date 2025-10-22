@@ -1,12 +1,13 @@
 import {Component, inject, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {ProductComponent} from './product.component/product.component';
-import {ProductData, Products} from '../data/product.data';
+import {ProductData} from '../data/product.data';
 import {FormsModule} from '@angular/forms';
 import {User} from '../data/user.data';
 import {ModalComponent} from './modal.component/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {McInput} from './directives/mc-input';
+import {McProduct} from './services/mcproduct';
 
 interface ListImages {
   src: string;
@@ -68,10 +69,11 @@ export class App {
   protected isProductNameValid = signal(true);
 
   private modalService = inject(NgbModal);
+  private mcService = inject(McProduct);
 
   constructor() {
 
-    this.macaroons = Products;
+    this.macaroons = this.mcService.requestMcProducts();
   }
 
   public onProductSelected(data: ProductData, target: HTMLElement): void {
