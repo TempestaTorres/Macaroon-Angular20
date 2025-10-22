@@ -8,10 +8,22 @@ import {provideHttpClient, withNoXsrfProtection} from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     NgbActiveModal,
-    NgbActiveOffcanvas,
     provideHttpClient(withNoXsrfProtection()),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes)
+  ]
+};
+export const headerConfig: ApplicationConfig = {
+  providers: [
+    NgbActiveOffcanvas,
+    provideBrowserGlobalErrorListeners(),
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes)
+  ]
+};
+export const footerConfig: ApplicationConfig = {
+  providers: [
+    provideBrowserGlobalErrorListeners(),
   ]
 };
