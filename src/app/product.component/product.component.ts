@@ -29,6 +29,7 @@ export class ProductComponent {
       price: 0,
     }
   }
+
   protected buttonClick(): void {
     this.cardEmitter.emit(this.product);
   }

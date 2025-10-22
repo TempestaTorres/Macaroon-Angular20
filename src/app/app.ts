@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {User} from '../data/user.data';
 import {ModalComponent} from './modal.component/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {McInput} from './directives/mc-input';
 
 interface ListImages {
   src: string;
@@ -18,7 +19,7 @@ interface ListItemData {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductComponent, FormsModule, ModalComponent],
+  imports: [RouterOutlet, ProductComponent, FormsModule, ModalComponent, McInput],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

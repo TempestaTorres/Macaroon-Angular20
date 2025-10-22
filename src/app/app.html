@@ -24,7 +24,7 @@
       <!--Main content-->
       <div class="advantages-hero row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-          <img [src]="listImages[1].src" class="d-block ms-lg-auto img-fluid" alt="Macaroon" loading="lazy">
+          <img [src]="listImages[1].src" class="d-block ms-lg-auto img-fluid" alt="Macaroon">
         </div>
         <div class="col-lg-6">
           <h2 class="display-5 fw-bold lh-1 mb-sm-5">{{ aboutusTitle }}</h2>
@@ -84,6 +84,7 @@
               <label for="inputChoice" class="form-label label">{{ secOrderLabelSelect }}</label>
               <input [ngModelOptions]="{standalone: true}"
                      [(ngModel)]="userData.productName"
+                     McInput
                      [class.is-warning]="isProductNameValid()"
                      (input)="onChoiceInput(inputChoice.value)"
                      type="text"
@@ -99,6 +100,7 @@
               <label for="inputName" class="form-label label">{{ secOrderLabelInfo }}</label>
               <input [ngModelOptions]="{standalone: true}"
                      [(ngModel)]="userData.userName"
+                     McInput
                      [class.is-warning]="isUserNameValid()"
                      type="text"
                      (input)="onNameInput(inputName.value)"
@@ -113,6 +115,7 @@
               <input [ngModelOptions]="{standalone: true}"
                      [(ngModel)]="userData.userPhone"
                      [class.is-warning]="isUserPhoneValid()"
+                     McInput
                      type="tel"
                      (input)="onPhoneInput(inputPhone.value)"
                      class="form-control"
