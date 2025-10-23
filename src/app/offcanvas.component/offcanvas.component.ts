@@ -13,7 +13,9 @@ import {NgbActiveOffcanvas,NgbOffcanvasConfig} from '@ng-bootstrap/ng-bootstrap'
 })
 export class OffcanvasComponent {
 
+  //Services
   offcanvas = inject(NgbActiveOffcanvas);
+
   protected readonly title: string = 'macaroon';
 
   constructor(

@@ -1,0 +1,180 @@
+/*cart*/
+.cart-notification-wrapper {
+  margin-right: 1rem;
+}
+.cart-notification-clicker {
+  position: relative;
+  text-decoration: none;
+  transition: 0.5s;
+}
+.cart-notification-clicker img {
+  width: 22px;
+}
+.cart-notification-clicker span {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  font-size: 11px;
+  border-radius: 50%;
+  right: -12px;
+  top: -12px;
+  background: #F45B0F;
+  line-height: 22px;
+}
+.cart-modal {
+  width: 100%;
+  min-width: 370px;
+  background: #FFFFFF;
+  box-shadow: 0 10px 15px rgba(6, 0, 8, 0.22);
+  border-radius: 10px;
+  position: absolute;
+  right: 0;
+  transform: translateY(230px) translateX(166px);
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+.cart-modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(290px) translateX(166px);
+}
+.cart-modal .cart-modal-body {
+  padding: 20px 20px;
+  height: 400px;
+  overflow: auto;
+}
+.cart-modal-footer {
+  padding: 13px 20px;
+  background: #eba8b1;
+  border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 768px) {
+  .cart-modal {
+    transform: translateY(230px) translateX(50px);
+  }
+  .cart-modal.active {
+    transform: translateY(288px) translateX(50px);
+  }
+}
+@media (max-width: 575px) {
+  .cart-modal {
+    transform: translateY(230px) translateX(50px);
+  }
+}
+
+@media (max-width: 575px) {
+  .cart-modal.active {
+    transform: translateY(288px) translateX(48px);
+  }
+}
+@media (max-width: 376px) {
+
+  .cart-modal {
+    min-width: 300px;
+    transform: translateY(230px) translateX(48px);
+  }
+  .cart-modal.active {
+    min-width: 300px;
+    transform: translateY(288px) translateX(48px);
+  }
+  .cart-modal-body {
+    padding: 20px 5px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .cart-modal {
+    transform: translateY(230px) translateX(61px);
+  }
+  .cart-modal.active {
+    transform: translateY(288px) translateX(62px);
+  }
+}
+
+.cart-modal .cart-modal-header {
+  position: relative;
+  padding: 15px 20px;
+  border-radius: 10px 10px 0 0;
+  background: rgb(113, 8, 30);
+}
+.cart-modal .cart-modal-header h4 {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0;
+}
+.cart-modal-close {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  cursor: pointer;
+}
+.cart-modal-close:hover svg path {
+  fill: #eba8b1;
+}
+.cart-modal-footer .submit-button {
+  font-size: 12px;
+}
+.total-payment .payment-title {
+  color: #303e67;
+  font-weight: 500;
+}
+button.cart-delete-item {
+  border: 1px solid #eba8b1 !important;
+  width: 30px;
+  height: 30px;
+  transition: background-color 0.3s;
+}
+button.cart-delete-item:hover {
+  border: 1px solid #eba8b1 !important;
+  background: rgb(113, 8, 30);
+  & svg path {
+    fill: #eba8b1;
+  }
+
+}
+/*Table*/
+.table td, .table-caption {
+  padding: .75rem !important;
+  border-top: 0 !important;
+}
+.table-lead {
+  font-size: 13px !important;
+  line-height: 13px !important;
+}
+.total-payment {
+  border: 1px solid rgb(130, 19, 40);
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.total-payment .table tbody td, .total-payment table tbody td, .shopping-cart .table tbody td, .shopping-cart table tbody td {
+  padding: 20px 10px;
+  border-top: 0 !important;
+  border-bottom: 1px solid rgb(130, 19, 40);
+}
+.shopping-cart .table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid rgb(130, 19, 40);
+}
+h6 {
+  color: #474D58;
+  font-family: "Tavolga", sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.total-price {
+  font-family: "Tavolga", sans-serif;
+}
+.card-payment-header {
+  padding: 22px 30px;
+  border-bottom: 1px solid #E0E2E8;
+}
+.mc-payment-form {
+  font-family: 'GilroyMedium', sans-serif;
+}

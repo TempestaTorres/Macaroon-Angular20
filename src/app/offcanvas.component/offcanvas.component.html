@@ -16,7 +16,10 @@
         {title: 'Оформить заказ', link: '#order'},
       ]; track item.title) {
         <li class="nav-item">
-          <a aria-current="true" class="nav-link py-2 px-0 px-lg-2" [href]="item.link">{{ item.title }}
+          <a aria-current="true"
+             class="nav-link py-2 px-0 px-lg-2"
+             [href]="item.link"
+             (click)="offcanvas.dismiss('Cross click')">{{ item.title }}
           </a>
         </li>
       }

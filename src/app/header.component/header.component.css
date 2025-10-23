@@ -8,6 +8,9 @@
   /*background-image: linear-gradient(rgba(var(--bd-macaroon-rgb), 1), rgba(var(--bd-macaroon-rgb), .95));*/
   background-image: linear-gradient(rgba(var(--bd-header-rgb), 1), rgba(var(--bd-header-rgb), .95));
 }
+.header-nav-bar {
+  margin-right: -1rem;
+}
 
 @media (max-width: 992px) {
   .phone {
@@ -19,5 +22,8 @@
   }
   .header-nav-bar {
     display: none !important;
+  }
+  .header-right {
+    margin-left: auto !important;
   }
 }

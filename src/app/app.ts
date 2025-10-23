@@ -8,19 +8,16 @@ import {ModalComponent} from './modal.component/modal.component';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {McInput} from './directives/mc-input';
 import {McProduct} from './services/mcproduct';
-
-interface ListImages {
-  src: string;
-}
-interface ListItemData {
-  title: string;
-  description: string;
-}
+import {FooterComponent} from './footer.component/footer.component';
+import {HeaderComponent} from './header.component/header.component';
+import {ScrollService} from './services/scroll';
+import {ListImages, ListItemData} from './interfaces/app.interfaces';
+import {AddToCartService} from './services/add-to-cart';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProductComponent, FormsModule, ModalComponent, McInput],
+  imports: [RouterOutlet, ProductComponent, FormsModule, ModalComponent, McInput, FooterComponent, HeaderComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -44,9 +41,6 @@ export class App {
   protected aboutusDescription: string = 'Все пироженки мы готовим только из натуральных и качественных продуктов, без консервантов, ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей, маргарина,разрыхлителей и улучшителей муки.';
 
   protected macaroons: ProductData[];
-  public secProductsAboutId: string = 'aboutus';
-  protected secProductsId: string = 'mcproducts';
-  protected secOrderId: string = 'order';
   protected secProductsTitle: string = 'Выберите свой макарун';
   protected secOrderTitle: string = 'Закажите макарун!';
   protected secOrderSubtitle: string = 'Выберите понравившийся макарун, заполните форму и ожидайте звонка нашего пекаря!';
@@ -63,13 +57,24 @@ export class App {
     userName: '',
     userPhone: ''
   }
+  private macaroon: ProductData = {
+    id: 0,
+    name: '',
+    count: 1,
+    price: 1.70,
+    icon: ''
+  };
 
+  // Signals
   protected isUserNameValid = signal(true);
   protected isUserPhoneValid = signal(true);
   protected isProductNameValid = signal(true);
 
+  // Services
   private modalService = inject(NgbModal);
   private mcService = inject(McProduct);
+  private scrollService = inject(ScrollService);
+  private cartService = inject(AddToCartService);
 
   constructor() {
 
@@ -77,22 +82,22 @@ export class App {
   }
 
   public onProductSelected(data: ProductData, target: HTMLElement): void {
-    console.log(data);
+    //console.log(data);
+    this.macaroon = data;
     this.userData.productName = data.name;
     this.isProductNameValid.set(false);
     this.smoothScroll(target);
-
   }
   public onFormSubmit(event: Event): void {
     event.preventDefault();
 
     if (this.isFormValid()) {
 
-
-
+      this.cartService.addToCart(this.macaroon);
+      // Open Modal Dialog
       const modalRef = this.modalService.open(ModalComponent, { backdrop: 'static', centered: true });
       modalRef.componentInstance.title = this.userData.productName;
-      modalRef.componentInstance.text = 'Ваш заказ принят. Ожидайте звонка от курьера';
+      modalRef.componentInstance.text = 'Ваш заказ принят. Проверьте корзину.';
     }
 
 
@@ -122,10 +127,7 @@ export class App {
 
   public smoothScroll(target: HTMLElement): void {
 
-    target.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    this.scrollService.smoothScrollIntoView(target);
   }
 
   private isValidProductName(name: string): boolean {

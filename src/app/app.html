@@ -1,3 +1,15 @@
+<app-header [links]="[
+  {
+   title: 'Пироженки',
+   target: selectProduct
+  },{
+   title: 'О нас',
+   target: advantages
+  },{
+   title: 'Оформить заказ',
+   target: order
+  },
+]"></app-header>
 <main #main>
   <section class="section-hero mc-bg-primary">
     <div class="container-xl bd-gutter px-4 py-5">
@@ -19,7 +31,7 @@
     </div>
   </section>
   <!--Advantages-->
-  <section class="section-advantages" [attr.id]="secProductsAboutId">
+  <section id="aboutus" class="section-advantages" #advantages>
     <div class="container-xl bd-gutter">
       <!--Main content-->
       <div class="advantages-hero row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -50,7 +62,7 @@
     </div>
   </section>
   <!--Macaroons-->
-  <section [attr.id]="secProductsId" class="section-macaroons mc-bg-primary" #selectProduct>
+  <section id="mcproducts" class="section-macaroons mc-bg-primary" #selectProduct>
     <h2 class="section-macaroons-title">{{ secProductsTitle }}</h2>
     <div class="container-xl bd-gutter">
       <div class="products-list">
@@ -67,7 +79,7 @@
     </div>
   </section>
   <!--Order section-->
-  <section class="section-order" [attr.id]="secOrderId">
+  <section id="order" class="section-order" #order>
     <div class="container-xl bd-gutter">
       <div class="row align-items-end order-row">
         <div class="col-md-6">
@@ -132,7 +144,8 @@
     </div>
   </section>
 </main>
-<button (click)="smoothScroll(main)" class="btn btn-secondary back-to-top" aria-label="Scroll to top">
+<app-footer></app-footer>
+<button (click)="smoothScroll(main)" class="btn btn-macaroon back-to-top" aria-label="Scroll to top">
   <img [src]="listImages[3].src" alt="arrow">
 </button>
 <app-modal style="display: none"></app-modal>

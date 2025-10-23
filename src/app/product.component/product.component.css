@@ -32,3 +32,73 @@
   font-family: "GilroyRegular",sans-serif;
   color: #f1faed;
 }
+/*=============================================================*/
+/* From my framework*/
+.ribbon1 {
+  position: absolute;
+  top: -6.1px;
+  right: -30px; /*10px*/
+}
+.ribbon1 span {
+  display: block;
+  padding: 6px 4px 0px;
+  border-top-right-radius: 6px;
+  width: 60px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.ribbon1 span.rib1-primary::before, .ribbon1 span.rib1-primary {
+  background: #884FFB;
+}
+.ribbon1.rib1-primary::after {
+  border-top-color: #884FFB;
+}
+.ribbon1 span.rib1-mc::before, .ribbon1 span.rib1-mc {
+  background: rgb(113, 8, 30);
+}
+.ribbon1.rib1-mc::after {
+  border-top-color: rgb(113, 8, 30);
+}
+.ribbon1::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 10px solid;
+  border-top-color: currentcolor;
+}
+.ribbon1 span.rib1-primary::before, .ribbon1 span.rib1-primary {
+  background: #884FFB;
+}
+.ribbon1 span.rib1-mc::before, .ribbon1 span.rib1-mc {
+  background: rgb(113, 8, 30);
+}
+.ribbon1 span::before {
+  height: 6px;
+  width: 4px;
+  left: -4px;
+  top: 0;
+}
+.ribbon1 span::before, .ribbon1 span::after {
+  position: absolute;
+  content: "";
+}
+.ribbon1 span.rib1-primary::after {
+  background: #884FFB;
+}
+.ribbon1 span.rib1-mc::after {
+  background:rgb(113, 8, 30);
+}
+.ribbon1 span::after {
+  height: 6px;
+  width: 6px;
+  left: -6px;
+  top: 0;
+  border-radius: 8px 8px 0 0;
+}
+.ribbon1 span::before, .ribbon1 span::after {
+  position: absolute;
+  content: "";
+}

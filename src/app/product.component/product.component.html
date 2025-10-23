@@ -1,11 +1,15 @@
 @if (product) {
   <div class="card macaroon-card shadow-sm position-relative">
     <div class="card-body mt-auto flex-grow-0">
+      <!-- Ribbon -->
+      <div class="ribbon1 rib1-mc">
+        <span class="text-white text-center rib1-mc">50% off</span>
+      </div>
       <h5 class="card-title text-center">{{ product.name }}</h5>
       <div class="d-flex justify-content-between">
         <div class="product-info">
           <div>{{ product.count + ' шт.' }}</div>
-          <div>{{ product.price | currency: 'RUB' : 'symbol' }}</div>
+          <div>{{ product.price | currency: 'RUB' : 'symbol' : '.2-2' : 'ru-RU'}}</div>
         </div>
         <button class="btn_1 btn_1-sm" (click)="buttonClick()">{{ buttonLabel }}</button>
       </div>

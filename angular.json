@@ -4,6 +4,9 @@
   "newProjectRoot": "projects",
   "projects": {
     "Angular20Macaroon": {
+      "i18n": {
+        "sourceLocale": "ru"
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -18,6 +21,7 @@
               "zone.js",
               "@angular/localize/init"
             ],
+            "localize": ["ru"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {

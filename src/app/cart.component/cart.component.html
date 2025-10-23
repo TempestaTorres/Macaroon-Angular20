@@ -1,0 +1,131 @@
+<div class="cart-notification-wrapper d-flex align-items-center position-relative">
+  <a href="javascript:void(0)"
+      class="cart-notification-clicker"
+      (click)="openActiveCart($event)"
+      >
+    <img [src]="imgUrl" alt="cart">
+    <span [class.d-none]="addToCart()">{{ cartService.getItemsCount() }}</span>
+  </a>
+  <div class="cart-modal" [class.active]="openCart()">
+    <div class="cart-modal-header">
+      <h4>{{ title }}</h4>
+      <div class="cart-modal-close" (click)="closeActiveCart($event)">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.09939 5.98831L11.772 10.661C12.076 10.965 12.076 11.4564 11.772 11.7603C11.468 12.0643 10.9766 12.0643 10.6726 11.7603L5.99994 7.08762L1.32737 11.7603C1.02329 12.0643 0.532002 12.0643 0.228062 11.7603C-0.0760207 11.4564 -0.0760207 10.965 0.228062 10.661L4.90063 5.98831L0.228062 1.3156C-0.0760207 1.01166 -0.0760207 0.520226 0.228062 0.216286C0.379534 0.0646715 0.578697 -0.0114918 0.777717 -0.0114918C0.976738 -0.0114918 1.17576 0.0646715 1.32737 0.216286L5.99994 4.889L10.6726 0.216286C10.8243 0.0646715 11.0233 -0.0114918 11.2223 -0.0114918C11.4213 -0.0114918 11.6203 0.0646715 11.772 0.216286C12.076 0.520226 12.076 1.01166 11.772 1.3156L7.09939 5.98831Z" fill="white"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="cart-modal-body">
+      <div class="table-responsive shopping-cart">
+        <table class="table mb-0">
+          <thead>
+          <tr>
+            <th style="width:33%" class="border-top-0 table-caption">Продукт</th>
+            <th style="width:25%" class="border-top-0 table-caption">Шт.</th>
+            <th class="border-top-0 table-caption">Сумма</th>
+            <th class="border-top-0 table-caption">...</th>
+          </tr>
+          </thead>
+          <!--Table body-->
+          <tbody>
+            @if (cartService.getItemsCount() > 0) {
+              @for (item of cartService.getItems(); track $index) {
+                <tr>
+                  <td>
+                    <img [src]="item.icon" alt="" width="52" height="auto">
+                    <p class="table-lead mb-0">{{ item.name}}</p>
+                  </td>
+                  <td class="text-center">{{ item.count}}</td>
+                  <td>{{ item.count * item.price | currency: 'RUB' : 'symbol' : '.2-2' : 'ru' }}</td>
+                  <td>
+                    <button class="cart-delete-item"
+                    (click)="cartService.deleteFromCart(item)">
+                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.09939 5.98831L11.772 10.661C12.076 10.965 12.076 11.4564 11.772 11.7603C11.468 12.0643 10.9766 12.0643 10.6726 11.7603L5.99994 7.08762L1.32737 11.7603C1.02329 12.0643 0.532002 12.0643 0.228062 11.7603C-0.0760207 11.4564 -0.0760207 10.965 0.228062 10.661L4.90063 5.98831L0.228062 1.3156C-0.0760207 1.01166 -0.0760207 0.520226 0.228062 0.216286C0.379534 0.0646715 0.578697 -0.0114918 0.777717 -0.0114918C0.976738 -0.0114918 1.17576 0.0646715 1.32737 0.216286L5.99994 4.889L10.6726 0.216286C10.8243 0.0646715 11.0233 -0.0114918 11.2223 -0.0114918C11.4213 -0.0114918 11.6203 0.0646715 11.772 0.216286C12.076 0.520226 12.076 1.01166 11.772 1.3156L7.09939 5.98831Z" fill="black"></path>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              }
+              <!--Summarize-->
+              <tr>
+                <td colspan="2"><h6>Всего :</h6></td>
+                <td colspan="2" class="total-price">{{ cartService.getTotalPrice() | currency: 'RUB' : 'symbol' : '.2-2' : 'ru' }}</td>
+              </tr>
+            }
+            @else {
+              <td colspan="4" class="text-muted text-center">Корзина пуста</td>
+            }
+          </tbody>
+        </table>
+      </div>
+      @if (cartService.getItemsCount() > 0) {
+        <!--Card-->
+        <div class="card border mb-1 mt-3 shadow-none">
+          <div class="card-payment-header text-dark d-flex justify-content-between">
+            <span class="align-self-center">Credit Card</span>
+            <img src="/assets/images/card-2.png" height="30" alt="Credit Card">
+          </div>
+          <div class="card-body">
+            <form
+              class="mc-payment-form"
+              (submit)="payToCart($event)"
+              novalidate>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="mb-3">
+                    <label for="card-number" class="form-label">Номер карты</label>
+                    <input type="text" class="form-control" id="card-number" placeholder="1234-5678-9123-4567" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="select-month" class="form-label">Expiry Month</label>
+                    <select class="form-select" id="select-month">
+                      <option selected="">Месяц</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="select-year" class="form-label me-2">Expiry Year</label>
+                    <select class="form-select" id="select_year">
+                      <option selected="">Год</option>
+                      <option value="1">2025</option>
+                      <option value="2">2026</option>
+                      <option value="3">2027</option>
+                      <option value="4">2028</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label class="form-label" for="CVV-Code">Код</label>
+                    <input type="password" class="form-control" id="CVV-Code" required placeholder="CVV">
+                  </div>
+                </div>
+              </div>
+              <!--Button-->
+              <div class="input-group">
+                <button class="btn_1 w-100 py-3" type="submit">Оплатить</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="cart-modal-footer"></div>
+  </div>
+</div>
